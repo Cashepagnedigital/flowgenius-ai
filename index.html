@@ -1050,6 +1050,195 @@
   }
 
 
+
+  /* TRIAL SYSTEM */
+  .trial-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    gap: 12px;
+  }
+  .trial-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .trial-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: all 0.3s;
+  }
+  .trial-dot.used {
+    background: var(--border);
+    opacity: 0.5;
+  }
+  .trial-label {
+    color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .trial-upgrade {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  /* PAYWALL MODAL */
+  .paywall-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,10,14,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+  }
+  .paywall-overlay.visible { display: flex; }
+
+  .paywall-modal {
+    background: var(--surface);
+    border: 1px solid rgba(0,229,160,0.25);
+    border-radius: 20px;
+    padding: 48px 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(0,229,160,0.08);
+    animation: modalIn 0.35s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  @keyframes modalIn {
+    from { opacity:0; transform:scale(0.88) translateY(20px); }
+    to   { opacity:1; transform:scale(1)    translateY(0); }
+  }
+
+  .paywall-icon {
+    font-size: 52px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .paywall-title {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .paywall-title span { color: var(--accent); }
+  .paywall-desc {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .paywall-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+  .paywall-perk {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .perk-check {
+    width: 22px; height: 22px;
+    min-width: 22px;
+    background: rgba(0,229,160,0.12);
+    border: 1px solid rgba(0,229,160,0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .paywall-price {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pw-plan { font-size: 13px; color: var(--text2); }
+  .pw-amount {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+  .pw-fcfa { font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+
+  .paywall-cta {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent), #00C880);
+    color: var(--bg);
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+  }
+  .paywall-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0,229,160,0.35);
+  }
+  .paywall-skip {
+    font-size: 12px;
+    color: var(--text3);
+    cursor: pointer;
+    transition: color 0.2s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .paywall-skip:hover { color: var(--text2); }
+
+  .paywall-payment-icons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .pw-icon {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
   /* AFFILIATION */
   .affil-section {
     padding: 100px 60px;
@@ -1466,6 +1655,17 @@
         <div class="input-label">Décrivez votre défi business</div>
         <textarea class="goal-input" id="goalInput" placeholder="Ex: Je veux tripler mes ventes en 90 jours avec une équipe de 3 personnes et un budget limité..."></textarea>
 
+        <div class="trial-bar" id="trialBar">
+          <div class="trial-dots" id="trialDots">
+            <div class="trial-dot" id="d1"></div>
+            <div class="trial-dot" id="d2"></div>
+            <div class="trial-dot" id="d3"></div>
+            <div class="trial-dot" id="d4"></div>
+            <div class="trial-dot" id="d5"></div>
+          </div>
+          <span class="trial-label" id="trialLabel">5 essais gratuits restants</span>
+          <span class="trial-upgrade" onclick="showPaywall()">Passer Pro →</span>
+        </div>
         <button class="generate-btn" id="genBtn" onclick="generateWorkflow()">
           <span>⚡</span>
           <span>Générer le Workflow AI</span>
@@ -2091,7 +2291,88 @@ const defaultWorkflow = {
   kpis: [{ l: "Impact estimé", v: "+150%" }, { l: "Délai résultats", v: "60 jours" }, { l: "Universalité", v: "Haute" }]
 };
 
+
+// ── Trial system ──────────────────────────────────────────────────────────────
+const MAX_FREE = 5;
+
+function getTrialCount() {
+  return parseInt(localStorage.getItem('fg_trials') || '0');
+}
+function setTrialCount(n) {
+  localStorage.setItem('fg_trials', n);
+}
+function updateTrialUI() {
+  const used = getTrialCount();
+  const left = MAX_FREE - used;
+  // dots
+  for (let i=1; i<=5; i++) {
+    const dot = document.getElementById('d'+i);
+    if (dot) dot.classList.toggle('used', i <= used);
+  }
+  // label
+  const label = document.getElementById('trialLabel');
+  if (label) {
+    if (left <= 0) {
+      label.textContent = '0 essai restant — Passez Pro';
+      label.style.color = 'var(--accent3)';
+    } else if (left === 1) {
+      label.textContent = '1 dernier essai gratuit';
+      label.style.color = '#FFB347';
+    } else {
+      label.textContent = left + ' essais gratuits restants';
+      label.style.color = '';
+    }
+  }
+  // disable button if exhausted
+  const btn = document.getElementById('genBtn');
+  if (btn && left <= 0) {
+    btn.disabled = true;
+    btn.innerHTML = '<span>🔒</span><span>Essais épuisés — Passer Pro</span>';
+    btn.onclick = showPaywall;
+  }
+}
+function showPaywall() {
+  document.getElementById('paywallOverlay').classList.add('visible');
+}
+function hidePaywall() {
+  document.getElementById('paywallOverlay').classList.remove('visible');
+}
+function resetTrialForDemo() {
+  // Gives 5 more tries (for demo / if user wants to continue testing)
+  setTrialCount(0);
+  updateTrialUI();
+  hidePaywall();
+  const btn = document.getElementById('genBtn');
+  if (btn) {
+    btn.disabled = false;
+    btn.innerHTML = '<span>⚡</span><span>Générer le Workflow AI</span>';
+    btn.onclick = generateWorkflow;
+  }
+}
+// close on overlay click
+document.addEventListener('DOMContentLoaded', function() {
+  updateTrialUI();
+  const overlay = document.getElementById('paywallOverlay');
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) hidePaywall();
+    });
+  }
+});
+
 async function generateWorkflow() {
+  // ── trial gate ──
+  const used = getTrialCount();
+  if (used >= MAX_FREE) {
+    showPaywall();
+    return;
+  }
+  // increment immediately
+  setTrialCount(used + 1);
+  updateTrialUI();
+  // show paywall after last trial completes (delayed)
+  const isLastTrial = (used + 1) >= MAX_FREE;
+
   const bizType = document.getElementById('bizType').value;
   const goal = document.getElementById('goalInput').value;
   const btn = document.getElementById('genBtn');
@@ -2194,6 +2475,10 @@ Maximum 5 étapes, 3 KPIs. Réponds UNIQUEMENT avec le JSON, rien d'autre.`;
 
   output.innerHTML = html;
   output.classList.add('visible');
+  // Show paywall after last free trial
+  if (isLastTrial) {
+    setTimeout(showPaywall, 3200);
+  }
 }
 
 
@@ -2274,5 +2559,65 @@ document.querySelectorAll('.case-card, .how-step, .pricing-card, .testimonial-ca
   observer.observe(el);
 });
 </script>
+
+<!-- PAYWALL MODAL -->
+<div class="paywall-overlay" id="paywallOverlay">
+  <div class="paywall-modal">
+    <span class="paywall-icon">⚡</span>
+    <div class="paywall-title">Vous avez utilisé vos<br><span>5 essais gratuits</span></div>
+    <p class="paywall-desc">
+      Vous avez déjà généré 5 workflows. Passez au plan Pro pour des workflows illimités et booster vraiment votre business.
+    </p>
+
+    <div class="paywall-perks">
+      <div class="paywall-perk">
+        <div class="perk-check">✓</div>
+        <span>Workflows <strong>illimités</strong> — plus jamais de limite</span>
+      </div>
+      <div class="paywall-perk">
+        <div class="perk-check">✓</div>
+        <span>Tous les secteurs business débloqués</span>
+      </div>
+      <div class="paywall-perk">
+        <div class="perk-check">✓</div>
+        <span>Export PDF, Excel & Notion inclus</span>
+      </div>
+      <div class="paywall-perk">
+        <div class="perk-check">✓</div>
+        <span>Intégrations Make.com & Zapier</span>
+      </div>
+      <div class="paywall-perk">
+        <div class="perk-check">✓</div>
+        <span>Support prioritaire 24/7</span>
+      </div>
+    </div>
+
+    <div class="paywall-price">
+      <div>
+        <div class="pw-plan">Plan Pro — Mensuel</div>
+        <div class="pw-fcfa">≈ 29 000 FCFA / mois</div>
+      </div>
+      <div class="pw-amount">$49<span style="font-size:14px;color:var(--text3)">/mois</span></div>
+    </div>
+
+    <button class="paywall-cta" onclick="window.open('https://yncfctvj.mychariow.shop/prd_l0i6kk','_blank')">
+      🚀 Passer au Plan Pro via Chariow
+    </button>
+
+    <div class="paywall-payment-icons">
+      <span class="pw-icon">Orange Money</span>
+      <span class="pw-icon">MTN MoMo</span>
+      <span class="pw-icon">Visa</span>
+      <span class="pw-icon">Crypto</span>
+    </div>
+
+    <div style="margin-top:20px">
+      <span class="paywall-skip" onclick="resetTrialForDemo()">
+        ← Continuer avec 5 nouveaux essais
+      </span>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
